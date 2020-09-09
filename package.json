@@ -13,7 +13,7 @@
     }
   },
   "pesy": {
-    "azure-project": "esy-dev/esy",
+    "azure-project": "pesy/pesy",
     "github": "pesy/template-sihl"
   },
   "buildDirs": {
