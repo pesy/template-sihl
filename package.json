@@ -1,0 +1,49 @@
+{
+  "name": "<PACKAGE_NAME_FULL>",
+  "version": "0.1.0",
+  "description": "Starter Sihl Project",
+  "esy": {
+    "build": "dune build -p #{self.name}",
+    "buildDev": "refmterr pesy build",
+    "release": {
+      "rewritePrefix": true,
+      "releasedBinaries": [
+        "<PACKAGE_NAME_UPPER_CAMEL>App"
+      ]
+    }
+  },
+  "pesy": {
+    "azure-project": "esy-dev/esy",
+    "github": "pesy/template-sihl"
+  },
+  "buildDirs": {
+    "service": {
+      "imports": [
+	"Sihl = require('@opam/sihl')"
+      ]
+    },
+    "bin": {
+      "imports": [
+        "Service = require('../service')"
+      ],
+     "bin": {
+        "<PACKAGE_NAME_UPPER_CAMEL>App": "<PACKAGE_NAME_UPPER_CAMEL>App.re"
+      }
+    }
+  },
+  "scripts": {
+    "start": "esy x <PACKAGE_NAME_UPPER_CAMEL>App"
+  },
+  "dependencies": {
+    "ocaml": "~4.10.0",
+    "@esy-ocaml/reason": "*",
+    "@opam/dune": "*",
+    "@pesy/esy-pesy": "0.1.0-alpha.11",
+    "@opam/sihl": "*"
+  },
+  "devDependencies": {
+    "@opam/merlin": "*",
+    "@opam/ocaml-lsp-server": "ocaml/ocaml-lsp:ocaml-lsp-server.opam",
+    "refmterr": "*"
+  }
+}
